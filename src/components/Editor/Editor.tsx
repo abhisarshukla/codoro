@@ -1,9 +1,12 @@
+/** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from 'react';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import html from 'highlight.js/lib/languages/xml';
 import css from 'highlight.js/lib/languages/css';
 import 'highlight.js/styles/github.css';
+
+import { StyleEditor } from './Editor.style';
 interface IProps {
     language: ULanguages,
 };
@@ -40,16 +43,16 @@ const Editor = ({language}: IProps) => {
     }
 
     return (
-        <div className="code-edit-container">
-            {language}
+        <div css={StyleEditor}>
+            <pre>
+                <code className={`language-${language}`}>{source[language]}</code>
+            </pre>
             <textarea
                 value={source[language]}
                 onChange={e => handleChange(e)}
                 onKeyDown={handleKeyDown}
+                spellCheck={false}
             />
-            <pre className="code-output">
-                <code className={`language-${language}`}>{source[language]}</code>
-            </pre>
         </div>
     )
 }
