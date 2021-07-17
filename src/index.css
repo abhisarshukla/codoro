@@ -1,3 +1,16 @@
 html {
     font-size: inherit;
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0px;
+    overflow: hidden;
 }

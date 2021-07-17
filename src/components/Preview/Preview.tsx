@@ -1,9 +1,32 @@
-import React from 'react';
+/** @jsxImportSource @emotion/react */
+import { useEffect } from 'react';
 
-const Preview = () => {
+import { StylePreview } from './Preview.style';
+
+interface IProps {
+    source: {
+        html: string;
+        js: string;
+        css: string;
+    },
+};
+
+const Preview = ({source}: IProps) => {
+
+    useEffect(() => {
+        const preview: HTMLIFrameElement = document.getElementById('preview') as HTMLIFrameElement;
+        if(preview) {
+            const sourceCode = source.html + "<style>" + source.css + "</style><script>" + source.js + "</script>";
+            const previewDocument = preview.contentWindow?.document;
+            previewDocument?.open();
+            previewDocument?.write(sourceCode);
+            previewDocument?.close();
+        }
+    }, [source]);
+
     return (
-        <div>
-            Not the preview
+        <div css={StylePreview}>
+            <iframe src="" title="Preview Window" id="preview"></iframe>
         </div>
     )
 }

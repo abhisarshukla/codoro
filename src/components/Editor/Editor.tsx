@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import html from 'highlight.js/lib/languages/xml';
@@ -9,15 +9,11 @@ import 'highlight.js/styles/github.css';
 import { StyleEditor } from './Editor.style';
 interface IProps {
     language: ULanguages,
+    source: ISource,
+    setSource: Dispatch<SetStateAction<ISource>>,
 };
 
-const Editor = ({language}: IProps) => {
-
-    const [source, setSource] = useState({
-        html: "",
-        js: "",
-        css: "",
-    });
+const Editor = ({language, source, setSource}: IProps) => {
 
     useEffect(() => {
         hljs.registerLanguage('javascript', javascript);
@@ -34,8 +30,11 @@ const Editor = ({language}: IProps) => {
             ...source,
             [language]: e.currentTarget.value,
         };
+
+        if(e.currentTarget.parentNode)
+        (e.currentTarget.parentNode as HTMLElement).dataset.replicatedValue = e.currentTarget.value;
+
         setSource(currentSource);
-        console.log(currentSource);
     }
 
     const handleKeyDown = () => {
