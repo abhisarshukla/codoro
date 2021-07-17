@@ -4,16 +4,12 @@ import Editor from './components/Editor';
 import FileExplorer from './components/FileExplorer';
 import Preview from './components/Preview';
 import logo from './logo.svg';
-
+import { demo } from './setupDemo';
 import { StyleApp } from './App.style';
 
 function App() {
   const [language, setLanguage] = useState<ULanguages>("html");
-  const [source, setSource] = useState<ISource>({
-      html: "",
-      js: "",
-      css: "",
-  });
+  const [source, setSource] = useState<ISource>(demo);
   return (
     <div css={ StyleApp }>
       <header>
