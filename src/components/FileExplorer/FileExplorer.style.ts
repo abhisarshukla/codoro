@@ -5,6 +5,7 @@ const StyleFileExplorer = css`
     padding: 5px;
     margin: 0px;
     grid-area: 2 / 1 / 3 / 2;
+    font-family: 'Roboto Mono', monospace;
     & ul {
         padding: 0px;
     }

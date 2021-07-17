@@ -4,8 +4,6 @@ const StylePreview = css`
     grid-area: 2 / 3 / 3 / 4;
     iframe {
         flex-grow: 1;
-        color: black;
-        background: white;
         border: none;
         outline: 1px solid #abb2bf;
     }

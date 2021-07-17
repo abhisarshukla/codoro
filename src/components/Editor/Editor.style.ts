@@ -19,12 +19,12 @@ const StyleEditor = css`
         padding: 10px;
         margin: 0px;
         line-height: 1.5em;
-        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        font-family: 'Fira Code', monospace;;
         font-size: 1rem;
     }
 
     code {
-        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        font-family: 'Fira Code', monospace;;
     }
 
     textarea {

@@ -15,7 +15,7 @@ function App() {
   });
   return (
     <div css={ StyleApp }>
-      <header>Codoro</header>
+      <header>Codoro_</header>
       <FileExplorer setLanguage={setLanguage} />
       <Editor language={language} source={source} setSource={setSource}/>
       <Preview source={source} />

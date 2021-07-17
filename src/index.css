@@ -3,11 +3,6 @@ html {
     box-sizing: border-box;
 }
 
-:root {
-    --primary: #98c379;
-    --secondary: #d19a66;
-}
-
 *,
 *::after,
 *::before {
@@ -18,6 +13,4 @@ body {
     min-height: 100vh;
     margin: 0px;
     overflow: hidden;
-    color: #abb2bf;
-    background: #262831;
 }
