@@ -25,6 +25,12 @@ const Editor = ({language, source, setSource}: IProps) => {
         hljs.highlightAll();
     }, [source, language])
 
+    /**
+     * This function will handle updating the source state and setting replicatedValue in parent div
+     * for proper rescaling of the editor.
+     * @param e HTMLTextAreaElement.
+     * 
+     */
     const handleChange = (e: React.FormEvent<HTMLTextAreaElement>) => {
         const currentSource = {
             ...source,
@@ -32,13 +38,9 @@ const Editor = ({language, source, setSource}: IProps) => {
         };
 
         if(e.currentTarget.parentNode)
-        (e.currentTarget.parentNode as HTMLElement).dataset.replicatedValue = source[language];
+        (e.currentTarget.parentNode as HTMLElement).dataset.replicatedValue = source[language]; // Hacky since textarea cannot be resized based on its contents.
 
         setSource(currentSource);
-    }
-
-    const handleKeyDown = () => {
-        //TODO
     }
 
     return (
@@ -49,7 +51,6 @@ const Editor = ({language, source, setSource}: IProps) => {
             <textarea
                 value={source[language]}
                 onChange={e => handleChange(e)}
-                onKeyDown={handleKeyDown}
                 spellCheck={false}
             />
         </div>

@@ -9,12 +9,17 @@ interface IProps {
 
 const FileExplorer = ({ setLanguage }: IProps) => {
 
+    /**
+     * This function takes care of setting proper styles as per the selected item.
+     * @param e The event when clicking on the li elements.
+     * @param language One of html, js or css
+     */
     const hangleClick = (e: React.FormEvent<HTMLLIElement>, language: ULanguages) => {
         const FilesElement = document.getElementById('Files') as HTMLDivElement;
         if(FilesElement) {
             const allLi = FilesElement.querySelectorAll('li');
             allLi.forEach((li) => {
-                li.classList.remove('selected')
+                li.classList.remove('selected');
             })
         }
         e.currentTarget.classList.add('selected');
