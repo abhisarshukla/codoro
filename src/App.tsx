@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Editor from './components/Editor';
 import FileExplorer from './components/FileExplorer';
 import Preview from './components/Preview';
+import logo from './logo.svg';
 
 import { StyleApp } from './App.style';
 
@@ -15,7 +16,10 @@ function App() {
   });
   return (
     <div css={ StyleApp }>
-      <header>Codoro_</header>
+      <header>
+        <img src={logo} alt="Codoro logo" height="45px"></img>
+        <span className="codoro">Codoro_</span>
+      </header>
       <FileExplorer setLanguage={setLanguage} />
       <Editor language={language} source={source} setSource={setSource}/>
       <Preview source={source} />
