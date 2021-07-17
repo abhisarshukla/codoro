@@ -9,16 +9,24 @@ interface IProps {
 
 const FileExplorer = ({ setLanguage }: IProps) => {
 
-    const hangleClick = (language: ULanguages) => {
+    const hangleClick = (e: React.FormEvent<HTMLLIElement>, language: ULanguages) => {
+        const FilesElement = document.getElementById('Files') as HTMLDivElement;
+        if(FilesElement) {
+            const allLi = FilesElement.querySelectorAll('li');
+            allLi.forEach((li) => {
+                li.classList.remove('selected')
+            })
+        }
+        e.currentTarget.classList.add('selected');
         setLanguage(language);
     }
 
     return (
-        <div css={ StyleFileExplorer }>
+        <div id="Files" css={ StyleFileExplorer }>
             <ul>
-                <li onClick={e => hangleClick("html")}>index.html</li>
-                <li onClick={e => hangleClick("css")}>index.css</li>
-                <li onClick={e => hangleClick("js")}>index.js</li>
+                <li className="selected" onClick={e => hangleClick(e, "html")}>index.html</li>
+                <li onClick={e => hangleClick(e, "css")}>index.css</li>
+                <li onClick={e => hangleClick(e, "js")}>index.js</li>
             </ul>
         </div>
     );

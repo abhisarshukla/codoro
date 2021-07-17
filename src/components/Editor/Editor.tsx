@@ -4,7 +4,7 @@ import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import html from 'highlight.js/lib/languages/xml';
 import css from 'highlight.js/lib/languages/css';
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/atom-one-dark.css';
 
 import { StyleEditor } from './Editor.style';
 interface IProps {
@@ -32,7 +32,7 @@ const Editor = ({language, source, setSource}: IProps) => {
         };
 
         if(e.currentTarget.parentNode)
-        (e.currentTarget.parentNode as HTMLElement).dataset.replicatedValue = e.currentTarget.value;
+        (e.currentTarget.parentNode as HTMLElement).dataset.replicatedValue = source[language];
 
         setSource(currentSource);
     }

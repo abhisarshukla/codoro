@@ -4,6 +4,9 @@ const StyleEditor = css`
     position: relative;
     overflow: auto;
     display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    outline: 1px solid #abb2bf;
+    background-color: #282c34;
 
     &::after {
         content: attr(data-replicated-value) " ";
@@ -13,12 +16,8 @@ const StyleEditor = css`
 
     textarea, pre, &::after {
         grid-area: 1 / 1 / 2 / 2;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
+        padding: 10px;
         margin: 0px;
-        padding: 2px;
         line-height: 1.5em;
         font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 1rem;
@@ -31,7 +30,7 @@ const StyleEditor = css`
     textarea {
         background-color: transparent;
         color: transparent;
-        caret-color: black;
+        caret-color: #abb2bf;
         min-height: fit-content;
         overflow: hidden;
         border: none;
